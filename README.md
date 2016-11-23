@@ -1,5 +1,8 @@
 # Preodator
 
+
+psql -p5432
+
 Frontend
   - SQLite Local Storage
   - Geolocation Redemption Events

@@ -1,48 +1,44 @@
 CREATE DATABASE preodator;
 
+\c preodator;
+
 CREATE TABLE users(
-  "userID" SERIAL,
-  "DNI" INTEGER,
+  "id" SERIAL,
+  "dni" TEXT,
   "name" TEXT,
-  "phone" INTEGER,
+  "phone" TEXT,
   "email" TEXT,
-  "create_at" TIMESTAMP,
-  primary key ("userID")
+  "create_at" TIMESTAMP default current_timestamp,
+  primary key ("id")
 );
 
 CREATE TABLE receipts(
-  "receiptID" SERIAL,
-  "userID" INTEGER,
-  "create_at" TIMESTAMP,
-  primary key ("receiptID")
-  foreign key ("userID") references
-  users("userID")
-);
-
-CREATE TABLE redemptions(
-  "redemptionID" SERIAL,
-  "userID" INTEGER,
-  "rewardID" INTEGER,
-  "create_at" TIMESTAMP,
-  primary key ("redemptionID")
-  foreign key ("userID") references
-  users("userID")
-  foreign key ("rewardID") references
-  rewards("rewardID")
+  "id" SERIAL,
+  "userid" INTEGER references users("id"),
+  "create_at" TIMESTAMP default current_timestamp,
+  primary key ("id")
 );
 
 CREATE TABLE rewards(
-  "rewardID" SERIAL,
+  "id" SERIAL,
   "name" TEXT,
   "price" NUMERIC,
-  primary key ("rewardID")
+  "create_at" TIMESTAMP default current_timestamp,
+  primary key ("id")
+);
+
+CREATE TABLE redemptions(
+  "id" SERIAL,
+  "userid" INTEGER references users("id"),
+  "rewardid" INTEGER references rewards("id"),
+  "create_at" TIMESTAMP default current_timestamp,
+  primary key ("id")
 );
 
 CREATE TABLE venues(
-  "venueID" SERIAL,
+  "id" SERIAL,
   "name" TEXT,
-  "x" TEXT,
-  "y" TEXT,
-  "z" TEXT,
-  primary key ("venueID")
+  "geolocation" POINT,
+  "create_at" TIMESTAMP default current_timestamp,
+  primary key ("id")
 );
