@@ -1,4 +1,7 @@
-CREATE DATABASE preo;
+CREATE USER preo WITH PASSWORD 'preodator';
+GRANT ALL PRIVILEGES ON DATABASE preodator to preo;
+
+CREATE DATABASE preodator;
 
 CREATE TABLE users(
   "userID" SERIAL,

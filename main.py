@@ -1,5 +1,8 @@
 import json
+import psycopg2
 from flask import Flask
+
+pg = psycopg2.connect("dbname=preodator user=preo")
 
 app = Flask(__name__)
 
