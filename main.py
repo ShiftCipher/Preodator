@@ -1,4 +1,4 @@
-import json
+import os
 import psycopg2
 from flask import Flask
 
@@ -8,8 +8,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    return json.dumps({'Hello': 7, 'World': 7}, sort_keys=True,
-    indent=4, separators=(',', ': '))
+    return "Hello"
 
 @app.route("/users")
 def users_all():

@@ -1,6 +1,3 @@
-CREATE USER preo WITH PASSWORD 'preodator';
-GRANT ALL PRIVILEGES ON DATABASE preodator to preo;
-
 CREATE DATABASE preodator;
 
 CREATE TABLE users(
@@ -18,6 +15,8 @@ CREATE TABLE receipts(
   "userID" INTEGER,
   "create_at" TIMESTAMP,
   primary key ("receiptID")
+  foreign key ("userID") references
+  users("userID")
 );
 
 CREATE TABLE redemptions(
@@ -26,6 +25,10 @@ CREATE TABLE redemptions(
   "rewardID" INTEGER,
   "create_at" TIMESTAMP,
   primary key ("redemptionID")
+  foreign key ("userID") references
+  users("userID")
+  foreign key ("rewardID") references
+  rewards("rewardID")
 );
 
 CREATE TABLE rewards(
@@ -38,6 +41,8 @@ CREATE TABLE rewards(
 CREATE TABLE venues(
   "venueID" SERIAL,
   "name" TEXT,
-  "geolocation" TEXT,
+  "x" TEXT,
+  "y" TEXT,
+  "z" TEXT,
   primary key ("venueID")
 );
