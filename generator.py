@@ -13,12 +13,12 @@ for i in range(1, 1001):
     print dni + ", " + name + ", " + phone + ", " + email + ", " + date
 
 for i in range(1, 1001):
-    dni = "000000" + str(random.randrange(1, 300))
+    dni = "000000" + str(random.randrange(1, 100))
     date = str(datetime.datetime.utcnow())
     print dni + ", " + date
 
 for i in range(1, 251):
-    dni = "000000" + str(random.randrange(1, 300))
+    dni = "000000" + str(random.randrange(1, 50))
     reward = str(random.randrange(1, 11))
     date = str(datetime.datetime.utcnow())
     print dni + ", " + reward + ", " + date

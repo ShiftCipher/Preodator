@@ -1,9 +1,7 @@
 # Preodator
 
-# ToDo
-- Create Fake JSON
-
 Frontend
+  - SQLite Local Storage
   - Geolocation Redemption Events
   - Redemption Event Type
   - UserID
@@ -22,9 +20,10 @@ Effectiveness = 100 / Total Users * Users Reach First
 
 Middle Term - Reactive
 If Second Receipt exist
-  Time Between
+  Time Interval
 
-Long Term - Predictive
+
+Long Term - Predictive Modeling
 Redemption Score Prediction (Time to reach a certain Score)
 Reward (Time to reach a reward) vs
 Retention Time (Time user retention for reach a reward) vs Price (Reward Price)
