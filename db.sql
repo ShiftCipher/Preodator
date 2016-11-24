@@ -3,42 +3,40 @@ CREATE DATABASE preodator;
 \c preodator;
 
 CREATE TABLE users(
-  "id" SERIAL,
+  "id" SERIAL PRIMARY KEY,
   "dni" TEXT,
   "name" TEXT,
   "phone" TEXT,
   "email" TEXT,
-  "create_at" TIMESTAMP default current_timestamp,
-  primary key ("id")
-);
-
-CREATE TABLE receipts(
-  "id" SERIAL,
-  "userid" INTEGER references users("id"),
-  "create_at" TIMESTAMP default current_timestamp,
-  primary key ("id")
+  "create_at" TIMESTAMP default current_timestamp
 );
 
 CREATE TABLE rewards(
-  "id" SERIAL,
+  "id" SERIAL PRIMARY KEY,
   "name" TEXT,
   "price" NUMERIC,
-  "create_at" TIMESTAMP default current_timestamp,
-  primary key ("id")
-);
-
-CREATE TABLE redemptions(
-  "id" SERIAL,
-  "userid" INTEGER references users("id"),
-  "rewardid" INTEGER references rewards("id"),
-  "create_at" TIMESTAMP default current_timestamp,
-  primary key ("id")
+  "create_at" TIMESTAMP default current_timestamp
 );
 
 CREATE TABLE venues(
-  "id" SERIAL,
+  "id" SERIAL PRIMARY KEY,
   "name" TEXT,
   "geolocation" POINT,
+  "create_at" TIMESTAMP default current_timestamp
+);
+
+CREATE TABLE receipts(
+  "id" SERIAL PRIMARY KEY,
+  "user_id" INTEGER,
   "create_at" TIMESTAMP default current_timestamp,
-  primary key ("id")
+  FOREIGN KEY ("user_id") references users("id")
+);
+
+CREATE TABLE redemptions(
+  "id" SERIAL PRIMARY KEY,
+  "user_id" INTEGER,
+  "reward_id" INTEGER,
+  "create_at" TIMESTAMP default current_timestamp,
+  FOREIGN KEY ("user_id") references users("id"),
+  FOREIGN KEY ("reward_id") references rewards("id")
 );

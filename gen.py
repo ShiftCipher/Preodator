@@ -12,45 +12,45 @@ def factory_users():
         dni = '000000' + str(random.randrange(1, 300))
         phone = '013' + dni
         email = name.lower() + '@aol.com'
-        cur.execute("INSERT INTO users (dni, name, phone, email) VALUES (%s, %s, %s, %s)",
+        db.execute("INSERT INTO users (dni, name, phone, email) VALUES (%s, %s, %s, %s)",
         (dni, name, phone, email))
 
 def factory_receipts():
     # Receipt Factory
     for i in range(1, 1001):
-        userID = str(random.randrange(1, 1000))
-        cur.execute("INSERT INTO receipts (userID) VALUES (%s)",(userID,))
+        user_id = str(random.randrange(100, 250))
+        db.execute("INSERT INTO receipts (user_id) VALUES (%s)",(user_id,))
 
 def factory_redemptions():
     # Redemption Factory
     for i in range(1, 251):
-        userID = random.randrange(1, 1000)
-        rewardID = random.randrange(1, 11)
-        cur.execute("INSERT INTO redemptions (userID, rewardID) VALUES (%i, %i)",
-        (userID, rewardID))
+        user_id = random.randrange(1, 1000)
+        reward_id = random.randrange(1, 11)
+        db.execute("INSERT INTO redemptions (user_id, reward_id) VALUES (%s, %s)",
+        (user_id, reward_id))
 
 def factory_rewards():
     # Rewards Factory
     for i in range(1, 11):
         name = "Reward0" + str(i)
         price = random.randrange(30000, 200000)
-        cur.execute("INSERT INTO rewards (name, price) VALUES (%s, %i)",
+        db.execute("INSERT INTO rewards (name, price) VALUES (%s, %s)",
         (name, price))
 
 def factory_venues():
     # Rewards Venues
     for i in range(1, 11):
         name = "Venue0" + str(i)
-        cur.execute("INSERT INTO venues (name) VALUES (%s)",
-        (name))
+        db.execute("INSERT INTO venues (name) VALUES (%s)",
+        (name,))
 
-conn = psycopg2.connect("dbname=preodator user=imac")
-cur = conn.cursor()
+con = psycopg2.connect("dbname=preodator user=imac")
+db = con.cursor()
 factory_users()
 factory_receipts()
-factory_redemptions()
-factory_rewards()
 factory_venues()
-conn.commit()
-cur.close()
-conn.close()
+factory_rewards()
+factory_redemptions()
+
+con.commit()
+con.close()
