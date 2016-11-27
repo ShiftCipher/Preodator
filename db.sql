@@ -13,15 +13,13 @@ CREATE TABLE users(
 
 CREATE TABLE rewards(
   "id" SERIAL PRIMARY KEY,
-  "name" TEXT,
-  "price" NUMERIC,
+  "data" JSONB,
   "create_at" TIMESTAMP default current_timestamp
 );
 
 CREATE TABLE venues(
   "id" SERIAL PRIMARY KEY,
-  "name" TEXT,
-  "geolocation" POINT,
+  "data" JSONB,
   "create_at" TIMESTAMP default current_timestamp
 );
 
