@@ -1,5 +1,6 @@
 import names
 import sys
+import getpass
 import random
 import time
 import datetime
@@ -32,19 +33,21 @@ def factory_redemptions():
 def factory_rewards():
     # Rewards Factory
     for i in range(1, 11):
-        name = "Reward0" + str(i)
-        price = random.randrange(30000, 200000)
-        db.execute("INSERT INTO rewards (name, price) VALUES (%s, %s)",
+        name = '"name" : "Reward0' + str(i) + '"'
+        price = '"price" : ' + str(random.randrange(30000, 200000))
+        db.execute("INSERT INTO rewards (data) VALUES ({%s, %s})",
         (name, price))
 
 def factory_venues():
     # Rewards Venues
     for i in range(1, 11):
-        name = "Venue0" + str(i)
-        db.execute("INSERT INTO venues (name) VALUES (%s)",
+        name = '"name" : "Venue0' + str(i) + '"'
+        db.execute("INSERT INTO venues (data) VALUES (%s)",
         (name,))
 
-con = psycopg2.connect("dbname=preodator user=imac")
+user = str(getpass.getuser())
+con = "dbname=preodator user=" + user
+con = psycopg2.connect(con)
 db = con.cursor()
 factory_users()
 factory_receipts()
