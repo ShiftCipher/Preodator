@@ -1,12 +1,15 @@
 import os
+import getpass
 import json
 import datetime
-from flask import Flask
+from flask import Flask, jsonify
 import psycopg2
 
 app = Flask(__name__)
+user = str(getpass.getuser())
+con = "dbname=preodator user=" + user
 
-con = psycopg2.connect("dbname=preodator user=imac")
+con = psycopg2.connect(con)
 cur = con.cursor()
 
 def datetime_handler(x):
@@ -23,7 +26,7 @@ def users_all():
     cur.execute("SELECT * FROM users;")
     users = cur.fetchall()
     users = json.dumps(users, default=datetime_handler)
-    return users.explode()
+    return jsonify(str(users))
 
 @app.route("/receipts")
 def receipts_all():

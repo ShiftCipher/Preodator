@@ -3,6 +3,7 @@ import sys
 import getpass
 import random
 import time
+import json
 import datetime
 import psycopg2
 
@@ -33,17 +34,23 @@ def factory_redemptions():
 def factory_rewards():
     # Rewards Factory
     for i in range(1, 11):
-        name = '"name" : "Reward0' + str(i) + '"'
-        price = '"price" : ' + str(random.randrange(30000, 200000))
-        db.execute("INSERT INTO rewards (data) VALUES ({%s, %s})",
-        (name, price))
+        data = {
+        "name" : "Reward0" + str(i),
+        "price" : random.randrange(30000, 200000)
+        }
+        data = json.dumps(data)
+        db.execute("INSERT INTO rewards (data) VALUES (%s)",
+        (data,))
 
 def factory_venues():
     # Rewards Venues
     for i in range(1, 11):
-        name = '"name" : "Venue0' + str(i) + '"'
+        data = {
+        "name" : "Venue0" + str(i)
+        }
+        data = json.dumps(data)
         db.execute("INSERT INTO venues (data) VALUES (%s)",
-        (name,))
+        (data,))
 
 user = str(getpass.getuser())
 con = "dbname=preodator user=" + user

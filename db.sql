@@ -1,7 +1,3 @@
-CREATE DATABASE preodator;
-
-\c preodator;
-
 CREATE TABLE users(
   "id" SERIAL PRIMARY KEY,
   "dni" TEXT,
