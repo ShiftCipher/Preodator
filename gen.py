@@ -7,49 +7,94 @@ import json
 import datetime
 import psycopg2
 
-def factory_users():
-    # Users Factory
-    for i in range(1, 1001):
-        name = 'User' + str(i)
-        dni = '000000' + str(random.randrange(1, 300))
-        phone = '013' + dni
+
+# Admins Factory
+def factory_admins():
+    for i in range(1, 5):
+        name = "admin" + str(i)
+        dni = "000000" + str(random.randrange(1, 300))
+        phone = "013" + dni
         email = name.lower() + '@aol.com'
-        db.execute("INSERT INTO users (dni, name, phone, email) VALUES (%s, %s, %s, %s)",
-        (dni, name, phone, email))
+        password = "123456"
+        data = {
+        "name" : name,
+        "dni" : dni,
+        "phone" : phone,
+        "email" : email,
+        "password" : password
+        }
+        data = json.dumps(data)
+        db.execute("INSERT INTO admins (data) VALUES (%s)",
+        (data,))
 
-def factory_receipts():
-    # Receipt Factory
+# Users Factory
+def factory_users():
     for i in range(1, 1001):
-        user_id = str(random.randrange(100, 250))
-        db.execute("INSERT INTO receipts (user_id) VALUES (%s)",(user_id,))
+        name = "user" + str(i)
+        dni = "000000" + str(random.randrange(1, 300))
+        phone = "013" + dni
+        email = name.lower() + '@aol.com'
+        password = "123456"
+        data = {
+        "name" : name,
+        "dni" : dni,
+        "phone" : phone,
+        "email" : email,
+        "password" : password
+        }
+        data = json.dumps(data)
+        db.execute("INSERT INTO users (data) VALUES (%s)",
+        (data,))
 
+# Receipt Factory
+def factory_receipts():
+    for i in range(1, 1001):
+        user_id = random.randrange(100, 250)
+        db.execute("INSERT INTO receipts (user_id) VALUES (%s)",
+        (user_id,))
+
+# Redemption Factory
 def factory_redemptions():
-    # Redemption Factory
     for i in range(1, 251):
         user_id = random.randrange(1, 1000)
         reward_id = random.randrange(1, 11)
-        db.execute("INSERT INTO redemptions (user_id, reward_id) VALUES (%s, %s)",
-        (user_id, reward_id))
+        position = {
+        "latitude" : "-71.060316",
+        "longitude" : "48.432044"
+        }
+        position = json.dumps(position)
+        db.execute("INSERT INTO redemptions (user_id, reward_id, position) VALUES (%s, %s, %s)",
+        (user_id, reward_id, position))
 
+# Rewards Factory
 def factory_rewards():
-    # Rewards Factory
     for i in range(1, 11):
         data = {
-        "name" : "Reward0" + str(i),
+        "name" : "reward0" + str(i),
         "price" : random.randrange(30000, 200000)
         }
         data = json.dumps(data)
         db.execute("INSERT INTO rewards (data) VALUES (%s)",
         (data,))
 
+# Rewards Venues
 def factory_venues():
-    # Rewards Venues
     for i in range(1, 11):
         data = {
-        "name" : "Venue0" + str(i)
+        "name" : "venue0" + str(i)
         }
         data = json.dumps(data)
         db.execute("INSERT INTO venues (data) VALUES (%s)",
+        (data,))
+
+# Rewards Venues
+def factory_campaigns():
+    for i in range(1, 10):
+        data = {
+        "name" : "campaign0" + str(i)
+        }
+        data = json.dumps(data)
+        db.execute("INSERT INTO campaigns (data) VALUES (%s)",
         (data,))
 
 user = str(getpass.getuser())
@@ -57,10 +102,12 @@ con = "dbname=preodator user=" + user
 con = psycopg2.connect(con)
 db = con.cursor()
 factory_users()
+factory_admins()
 factory_receipts()
 factory_venues()
 factory_rewards()
 factory_redemptions()
+factory_campaigns()
 
 con.commit()
 con.close()

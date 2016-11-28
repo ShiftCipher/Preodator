@@ -1,8 +1,5 @@
 # Preodator
 
-
-psql -p5432
-
 Frontend
   - SQLite Local Storage
   - Geolocation Redemption Events
@@ -25,13 +22,11 @@ Middle Term - Reactive
 If Second Receipt exist
   Time Interval
 
-
 Long Term - Predictive Modeling
 Redemption Score Prediction (Time to reach a certain Score)
 Reward (Time to reach a reward) vs
 Retention Time (Time user retention for reach a reward) vs Price (Reward Price)
 Difficulty vs Reward vs Retention
-
 
 Push Notification Campaign
   - NewUser
