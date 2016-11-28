@@ -1,12 +1,11 @@
-import names
 import sys
-import getpass
-import random
 import time
 import json
+import names
+import random
+import getpass
 import datetime
 import psycopg2
-
 
 # Admins Factory
 def factory_admins():
