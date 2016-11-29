@@ -5,6 +5,14 @@ Wich pieces of data you think would be most relevant
 A brief overview of a plan of action to get to the data
 Explain what you think the best way to report the data to Richard directly would be
 
+## PUSH NOTIFICATION CAMPAIGN
+  - NewUser
+  - ByPlace
+
+## AVERAGE USER RETENTION BY VENUE
+  - Users that Submitted Multiple Receipts on Diferents Days
+  - User that Submit Receipts on Diferents Days
+
 ## FINANCE
   - Utility Total
   - Utility Growth
@@ -21,33 +29,34 @@ Explain what you think the best way to report the data to Richard directly would
   - Net App Value
 
 ## OPERATIONS
-  ### DESCRITIVE
-    - Total of Receipts
-    - Total of Redemptions
-    - Total of Transactions
-    - Number of Receipts by Day by Month by Day
-    - Number of Redemptions by Day by Month by Day
-    - Average Time to Process Receipts
-    - Average Time to Process Redemptions
-    - Average Time Interval of Receipts
-    - Average Time Interval of Redemptions
-    - Average Time of First Redemption
-    - Average Time of Second Receipt
-    - Average Time of Retention
-    - Average Time to Email to Response
-    - Average Time to Solve Problems
-    - Average Time to Recover Service
-    - Porcent of Error
-    - Occurrences of Critical Errors
-    - Total Active Time
-    - Total Redemptions Cost
-    - Redemptions Cost
 
-  ### PREDICTIVE
-    - Time to Reach a Redemption by Redemption
-    - Time to Reach a New Receipt
-    - Time Required a Difficulty vs Points by Redemption
-    - Effectiveness = 100 / Total Users * Users First Receipt
+### DESCRITIVE
+  - Total of Receipts
+  - Total of Redemptions
+  - Total of Transactions
+  - Number of Receipts by Day by Month by Day
+  - Number of Redemptions by Day by Month by Day
+  - Average Time to Process Receipts
+  - Average Time to Process Redemptions
+  - Average Time Interval of Receipts
+  - Average Time Interval of Redemptions
+  - Average Time of First Redemption
+  - Average Time of Second Receipt
+  - Average Time of Retention
+  - Average Time to Email to Response
+  - Average Time to Solve Problems
+  - Average Time to Recover Service
+  - Porcent of Error
+  - Occurrences of Critical Errors
+  - Total Active Time
+  - Total Redemptions Cost
+  - Redemptions Cost
+
+### PREDICTIVE
+  - Time to Reach a Redemption by Redemption
+  - Time to Reach a New Receipt
+  - Time Required a Difficulty vs Points by Redemption
+  - Effectiveness = 100 / Total Users * Users First Receipt
 
 ## USERS
   - Total Users
@@ -129,11 +138,3 @@ DESCRIPTION
   Long Term - Predictive Modeling
     Reward () vs
     Retention Time (Time user retention for reach a reward) vs Price (Reward Price)
-
-
-Push Notification Campaign
-  - NewUser
-  - ByPlace
-Average User Retention by Region
-  - Users that Submitted Multiple Receipts on Diferents Days
-  - User that Submit Receipts on Diferents Days
