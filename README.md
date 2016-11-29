@@ -112,14 +112,14 @@ Explain what you think the best way to report the data to Richard directly would
   - Entry Porcent Average
   - Quantity of Competence
 
-## MARKETING
+## MARKETING
   - Numbers of Channels of Distribution
   - Number of Simultaneous Active Sessions
   - Number of Security Violations
   - Number of Venues
 
-DESCRIPTION
-  Short Term - Descriptive
+## DESCRIPTION
+### Short Term - Descriptive
   If First Receipt exist
     TimeStamp Between Receipts
     Gain Redemption
@@ -131,10 +131,9 @@ DESCRIPTION
   Users Reach First Redemption
 
 
-  Middle Term - Reactive
+### Middle Term - Reactive
   If Second Receipt exist
     Time Interval
 
-  Long Term - Predictive Modeling
-    Reward () vs
+### Long Term - Predictive Modeling
     Retention Time (Time user retention for reach a reward) vs Price (Reward Price)
