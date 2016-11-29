@@ -112,7 +112,7 @@ Explain what you think the best way to report the data to Richard directly would
   - Entry Porcent Average
   - Quantity of Competence
 
-MARKETING
+## MARKETING
   - Numbers of Channels of Distribution
   - Number of Simultaneous Active Sessions
   - Number of Security Violations
