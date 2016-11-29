@@ -43,7 +43,7 @@ def users_all():
     users = json.dumps(users, default=datetime_handler)
     return users
 
-@app.route("/campaigns")
+@app.route("/campaigns", method=['GET'])
 def campaigns_all():
     cur.execute("SELECT * FROM campaigns;")
     campaings = cur.fetchall()
